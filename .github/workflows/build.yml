@@ -18,7 +18,7 @@ jobs:
         run: |
            apk update && apk add git rsync
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v6.0.2
 
       - name: Install dependencies 
         run: npm install
@@ -34,7 +34,7 @@ jobs:
           path: docs/ 
 
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@v4.2.5
+        uses: JamesIves/github-pages-deploy-action@v4.8.0
         if: contains(github.ref,'refs/heads/main') #Solo se ejecuta si hacemos push a la rama main. Evitamos modificar la rama gh-pages al construir una pull request.
         with:
           branch: gh-pages 
